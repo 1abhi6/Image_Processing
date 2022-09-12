@@ -1,4 +1,4 @@
-# Ask user to input an image and convert it into grey coloured image also ask the user whether it want to resize the image or not and then save that image
+# Ask user to input an image and convert it into grey coloured image also ask the user whether it want to resize the image or not also demonstrate flip function and then save that image
 
 # Importing the library
 
@@ -15,12 +15,13 @@ img = cv2.imread(path, 0)
 if(opt == "Y"):
     width = int(input("Width: "))
     height = int(input("Height: "))
-    cv2.resize(img, (width, height))
+    img = cv2.resize(img, (width, height))
 elif(opt == "N"):
-    cv2.resize(img, (300, 300))
+    img = cv2.resize(img, (300, 300))  # It will accept 3 params 0, 1 and -1
 
+img = cv2.flip(img, 0)
 # Show image
-cv2.imshow("Grayed color image", img)
+img = cv2.imshow("Grayed color image", img)
 
 # Save the image
 key = cv2.waitKey(0)
